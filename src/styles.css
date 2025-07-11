@@ -93,3 +93,15 @@ footer {
   width: 90px;
   vertical-align: middle;
 }
+
+a {
+  color: #f0f0f0;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #59a985;
+  text-decoration: underline;
+  transition: ease-in-out 150ms;
+}
