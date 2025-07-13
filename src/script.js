@@ -21,9 +21,6 @@ function formatDate(newDate) {
   return formattedDate;
 }
 
-let date = document.querySelector("#date");
-date.innerHTML = formatDate(now);
-
 //search feature
 function showWeather(response) {
   let cityData = response.data.city;
@@ -32,19 +29,23 @@ function showWeather(response) {
   let windData = response.data.wind.speed;
   let descriptionData = response.data.condition.description;
   let iconData = response.data.condition.icon_url;
+  let dateData = new Date(response.data.time * 1000);
 
-  let city = document.querySelector("#city");
-  let temperature = document.querySelector("#temperature");
-  let humidity = document.querySelector("#humidity");
-  let wind = document.querySelector("#wind");
-  let description = document.querySelector("#description");
-  let icon = document.querySelector("#icon");
-  city.innerHTML = cityData;
-  temperature.innerHTML = temperatureData;
-  humidity.innerHTML = humidityData;
-  wind.innerHTML = windData;
-  description.innerHTML = descriptionData;
-  icon.setAttribute("src", iconData);
+  let cityElement = document.querySelector("#city");
+  let temperatureElement = document.querySelector("#temperature");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let descriptionElement = document.querySelector("#description");
+  let iconElement = document.querySelector("#icon");
+  let dateElement = document.querySelector("#date");
+
+  cityElement.innerHTML = cityData;
+  temperatureElement.innerHTML = temperatureData;
+  humidityElement.innerHTML = humidityData;
+  windElement.innerHTML = windData;
+  descriptionElement.innerHTML = descriptionData;
+  iconElement.setAttribute("src", iconData);
+  dateElement.innerHTML = formatDate(dateData);
 }
 
 function searchCity(event) {
