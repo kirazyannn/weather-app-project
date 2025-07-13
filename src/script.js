@@ -30,6 +30,7 @@ function showWeather(response) {
   let descriptionData = response.data.condition.description;
   let iconData = response.data.condition.icon_url;
   let dateData = new Date(response.data.time * 1000);
+  console.log(dateData);
 
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
@@ -46,6 +47,24 @@ function showWeather(response) {
   descriptionElement.innerHTML = descriptionData;
   iconElement.setAttribute("src", iconData);
   dateElement.innerHTML = formatDate(dateData);
+}
+
+function formatDate(dateData) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+
+  let day = days[dateData.getDay()];
+  let hour = dateData.getHours();
+  let minute = dateData.getMinutes();
+
+  return `${day} ${hour}:${minute}`;
 }
 
 function searchCity(event) {
