@@ -30,7 +30,6 @@ function showWeather(response) {
   let descriptionData = response.data.condition.description;
   let iconData = response.data.condition.icon_url;
   let dateData = new Date(response.data.time * 1000);
-  console.log(dateData);
 
   let cityElement = document.querySelector("#city");
   let temperatureElement = document.querySelector("#temperature");
